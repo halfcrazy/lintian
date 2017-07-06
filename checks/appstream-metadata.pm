@@ -82,17 +82,6 @@ sub run {
     return;
 }
 
-=head1 NAME
-
-check_modalias
-
-=head1 DESCRIPTION
-
-Check if a AppStream XML file contain a provides->modalias block and
-check its content.
-
-=cut
-
 sub check_modalias {
     my ($info, $metadatafile, $modaliases) = @_;
     if (!$metadatafile->is_open_ok) {
@@ -128,16 +117,6 @@ sub check_modalias {
     return 0;
 }
 
-=head1 NAME
-
-provides_user_device
-
-=head1 DESCRIPTION
-
-Check if a udev rule file contain rules for plugdev or uaccess.
-
-=cut
-
 sub provides_user_device {
     my ($udevrulefile, $linenum, $rule, $data) = @_;
     my $retval = 0;
@@ -149,10 +128,10 @@ sub provides_user_device {
     if ($rule =~ m/SUBSYSTEM=="usb"/) {
         my ($vmatch, $pmatch);
         if ($rule =~ m/ATTR\{idVendor\}=="([0-9a-fA-F]{4})"/) {
-            $vmatch = "v" . uc($1);
+            $vmatch = 'v' . uc($1);
         }
         if ($rule =~ m/ATTR\{idProduct\}=="([0-9a-fA-F]{4})"/) {
-            $pmatch = "p" . uc($1);
+            $pmatch = 'p' . uc($1);
         }
         if (defined $vmatch && defined $pmatch) {
             my $match = "usb:${vmatch}${pmatch}d";
@@ -170,19 +149,6 @@ sub provides_user_device {
     }
     return $retval;
 }
-
-=head1 NAME
-
-check_udev_rules
-
-=head1 DESCRIPTION
-
-Extract all udev rules from a rule file and pass them on one by one to
-the callback function.
-
-This is a copy of a function in udev.pm.
-
-=cut
 
 sub check_udev_rules {
     my ($file, $check, $data) = @_;
