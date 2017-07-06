@@ -40,12 +40,13 @@ use Lintian::Tags qw(tag);
 sub run {
     my ($pkg, $type, $info, $proc, $group) = @_;
 
-    my %desktopfiles;
-    my %metainfo;
-    my @udevrules;
+    my (%desktopfiles, %metainfo, @udevrules);
     my $found_modalias = 0;
     my $modaliases = [];
-    if (defined(my $dir = $info->index_resolved_path('usr/share/applications/'))) {
+    if (
+        defined(
+            my $dir = $info->index_resolved_path('usr/share/applications/'))
+      ) {
         for my $file ($dir->children('breadth-first')) {
             $desktopfiles{$file} = 1 if ($file->is_file);
         }
@@ -91,33 +92,35 @@ Check if a AppStream XML file contain a provides->modalias block and
 check its content.
 
 =cut
+
 sub check_modalias {
     my ($info, $metadatafile, $modaliases) = @_;
-#    my $metadatafile = $info->index_resolved_path($metadatapath);
-    if (! $metadatafile->is_open_ok()) {
+    if (!$metadatafile->is_open_ok) {
         # FIXME report this as an error
         return;
     }
-    my $xml = XMLin($metadatafile->fs_path(),
-                    ForceArray => [ 'provides', 'modalias' ],
-                    KeepRoot => 1,
-                    KeyAttr => [],
-        );
+    my $xml = XMLin(
+        $metadatafile->fs_path,
+        ForceArray => ['provides', 'modalias'],
+        KeepRoot => 1,
+        KeyAttr => [],
+    );
     if (exists $xml->{'application'}) {
         tag('appstream-metadata-legacy-format', $metadatafile);
         return 0;
     }
-    if (exists $xml->{'component'}
-        && exists $xml->{'component'}->{'provides'}
-        && exists $xml->{'component'}->{'provides'}[0]->{'modalias'}) {
-        for (@{$xml->{'component'}->{'provides'}[0]->{'modalias'}}) {
+    if (   exists $xml->{'component'}
+        && exists $xml->{'component'}{'provides'}
+        && exists $xml->{'component'}{'provides'}[0]{'modalias'}) {
+        for (@{$xml->{'component'}{'provides'}[0]{'modalias'}}) {
             push(@{$modaliases}, $_);
             if (m/^usb:v[0-9a-f]{4}p[0-9a-f]{4}d/i
-                && ! m/^usb:v[0-9A-F]{4}p[0-9A-F]{4}d/) {
-                tag('appstream-metadata-malformed-modalias-provide',
+                && !m/^usb:v[0-9A-F]{4}p[0-9A-F]{4}d/) {
+                tag(
+                    'appstream-metadata-malformed-modalias-provide',
                     $metadatafile,
                     "include non-valid hex digit in USB matching rule '$_'"
-                    );
+                );
             }
         }
         return 1;
@@ -134,14 +137,13 @@ provides_user_device
 Check if a udev rule file contain rules for plugdev or uaccess.
 
 =cut
+
 sub provides_user_device {
     my ($udevrulefile, $linenum, $rule, $data) = @_;
     my $retval = 0;
-    if (
-        m/plugdev/
+    if (   m/plugdev/
         || m/uaccess/
-        || m/MODE=\"0666\"/
-        ) {
+        || m/MODE=\"0666\"/) {
         $retval = 1;
     }
     if ($rule =~ m/SUBSYSTEM=="usb"/) {
@@ -160,7 +162,7 @@ sub provides_user_device {
                     $foundmatch = 1;
                 }
             }
-            if (! $foundmatch) {
+            if (!$foundmatch) {
                 tag('appstream-metadata-missing-modalias-provide',
                     $udevrulefile, "match rule $match*");
             }
@@ -181,10 +183,11 @@ the callback function.
 This is a copy of a function in udev.pm.
 
 =cut
+
 sub check_udev_rules {
     my ($file, $check, $data) = @_;
 
-    my $fd = $file->open();
+    my $fd = $file->open;
     my $linenum = 0;
     my $cont;
     my $retval = 0;
