@@ -8,10 +8,59 @@
 #
 # Please keep the list sorted using `make sort`
 
+Api||API
+D-BUS||D-Bus
+Debian-Edu||Debian Edu
+Docbook||DocBook
+EMacs||Emacs
+GTK||GTK+
+Gconf||GConf
+Glee||GLee
+Gnome-VFS||GnomeVFS
+Gnome-Vfs||GnomeVFS
+GnomeVfs||GnomeVFS
+Gnome||GNOME
+Gnu||GNU
+Gobject||GObject
+Gstreamer||GStreamer
+Http||HTTP
+LUA||Lua
+Latex||LaTeX
+MYSQL||MySQL
+Mysql||MySQL
+OCAML||OCaml
+Ocaml||OCaml
+OpenLdap||OpenLDAP
+OpenSUSE||openSUSE
+OpenStreetmap||OpenStreetMap
+OpenSuSE||openSUSE
+OpenSuse||openSUSE
+Openldap||OpenLDAP
+Openstreetmap||OpenStreetMap
+Postgresql||PostgreSQL
+PyPi||PyPI
+Pypi||PyPI
+S-lang||S-Lang
+SLang||S-Lang
+SkoleLinux||Skolelinux
+SystemD||systemd
+TCL||Tcl
+TEX||TeX
+TK||Tk
+TeTeX||teTeX
+TeX-Live||TeX Live
+TeX-live||TeX Live
+TeXLive||TeX Live
+TeXlive||TeX Live
+Tetex||teTeX
+Tex||TeX
+XEMacs||XEmacs
+XFCE||Xfce
+XFce||Xfce
+Xemacs||XEmacs
 american||American
 apache||Apache
 api||API
-Api||API
 arabic||Arabic
 british||British
 chinese||Chinese
@@ -19,13 +68,9 @@ cyrillic||Cyrillic
 czech||Czech
 d-bus||D-Bus
 dbus||D-Bus
-D-BUS||D-Bus
-debian||Debian
 debian-edu||Debian Edu
-Debian-Edu||Debian Edu
+debian||Debian
 docbook||DocBook
-Docbook||DocBook
-EMacs||Emacs
 english||English
 esperanto||Esperanto
 european||European
@@ -33,93 +78,48 @@ farsi||Farsi
 finnish||Finnish
 french||French
 gconf||GConf
-Gconf||GConf
 german||German
-Glee||GLee
-gnome||GNOME
-Gnome||GNOME
 gnome-vfs||GnomeVFS
 gnomevfs||GnomeVFS
-Gnome-Vfs||GnomeVFS
-GnomeVfs||GnomeVFS
-Gnome-VFS||GnomeVFS
+gnome||GNOME
 gnu||GNU
-Gnu||GNU
 gobject||GObject
-Gobject||GObject
 greek||Greek
 gstreamer||GStreamer
-Gstreamer||GStreamer
 gtk+||GTK+
-GTK||GTK+
 hebrew||Hebrew
-Http||HTTP
 hungarian||Hungarian
 italian||Italian
 japanese||Japanese
 kde||KDE
 korean||Korean
 latex||LaTeX
-Latex||LaTeX
 latin||Latin
 linux||Linux
 lua||Lua
-LUA||Lua
 meta-package||metapackage
 mysql||MySQL
-Mysql||MySQL
-MYSQL||MySQL
 norwegian||Norwegian
 oAuth||OAuth
 ocaml||OCaml
-Ocaml||OCaml
-OCAML||OCaml
-openldap||OpenLDAP
-Openldap||OpenLDAP
-OpenLdap||OpenLDAP
-openstreetmap||OpenStreetMap
-Openstreetmap||OpenStreetMap
-OpenStreetmap||OpenStreetMap
-openSuse||openSUSE
 openSuSE||openSUSE
-OpenSuse||openSUSE
-OpenSuSE||openSUSE
-OpenSUSE||openSUSE
+openSuse||openSUSE
+openldap||OpenLDAP
+openstreetmap||OpenStreetMap
 portuguese||Portuguese
 postgresql||PostgreSQL
-Postgresql||PostgreSQL
-Pypi||PyPI
-PyPi||PyPI
 python||Python
 russian||Russian
-skolelinux||Skolelinux
-SkoleLinux||Skolelinux
 s-lang||S-Lang
-S-lang||S-Lang
-SLang||S-Lang
+skolelinux||Skolelinux
 slavic||Slavic
 spanish||Spanish
 subversion||Subversion
 swedish||Swedish
 systemD||systemd
-SystemD||systemd
 tcl||Tcl
-TCL||Tcl
 tetex||teTeX
-Tetex||teTeX
-TeTeX||teTeX
 tex-live||TeX Live
 texlive||TeX Live
-TeX-live||TeX Live
-TeXlive||TeX Live
-TeX-Live||TeX Live
-TeXLive||TeX Live
-Tex||TeX
-TEX||TeX
 tk||Tk
-TK||Tk
-Xemacs||XEmacs
-XEMacs||XEmacs
 xfce||Xfce
-XFce||Xfce
-XFCE||Xfce
